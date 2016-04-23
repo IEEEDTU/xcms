@@ -12,15 +12,25 @@ Add News:
 	Image 		: 	<input type="TEXT" ng-model="news.image"></input>
 	Link 		: 	<input type="TEXT" ng-model="news.link"></input>
 	PublishedBy	: 	<input type="TEXT" ng-model="news.publishedBy"></input>
-	<input type="submit">
+	<input type="submit"></input>
 </PRE>
 </form>
 {{response}}
 <br/>
+<form ng-submit="retrieveNews()">
 <pre>
 Retrieve News:
-RowsPerPage	: 	<input type="TEXT" ng-model="news.headline"> </input>
-PageNo		: 	<input type="TEXT"" ng-model="news.description"></input>
+RowsPerPage	: 	<input type="TEXT" ng-model="page.rowsPerPage"> </input>
+PageNo		: 	<input type="TEXT"" ng-model="page.pageNo"></input>
+	<input type="submit"></input>
+News Retrieved:
+<ul>
+	<li ng-repeat="N in moreNews">
+		{{N.fields.headline}} - {{N.fields.description}}
+	</li>
+</ul>
+	
 </pre>
+</form>
 </body>
 </html>

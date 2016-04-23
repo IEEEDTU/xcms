@@ -2,6 +2,8 @@ var app = angular.module('xcms', ['ngCookies']);
 
 app.controller('mainCtrl', [ '$scope', '$http', '$cookies', function($scope, $http, $cookies){
 	$scope.news = {};
+	$scope.page = {};
+	
 	$scope.addNews = function(){
 		$scope.data = 'headline=' + $scope.news.headline + 
 		'&description=' + $scope.news.description + 
@@ -16,6 +18,13 @@ app.controller('mainCtrl', [ '$scope', '$http', '$cookies', function($scope, $ht
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 		}).then(function(response){
 			$scope.response = response.data;
+		});
+	};
+	
+	$scope.retrieveNews = function(){
+		$http.get("http://127.0.0.1:8000/newsfeed/retrieveMoreNews?rowsPerPage=" + $scope.page.rowsPerPage + "&pageNo=" + $scope.page.pageNo)
+		.then(function(response){
+			$scope.moreNews = response.data.news;
 		});
 	};
 	
