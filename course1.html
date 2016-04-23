@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="xcms" lang="en-US">
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
+<script src="js/appC1.js" type="text/javascript"></script>
+<body ng-controller='mainCtrl'>
+Select Degree :
+<ul>
+	<li ng-repeat="degree in degrees">
+	<a href="#" ng-click="getBranches(degree.fields.degreeCode, degree.fields.degreeType)">{{degree.fields.degreeCode}} - {{degree.fields.degreeType}}</a>
+	</li>
+</ul>
+Select Branch :
+<ul>
+	<li ng-repeat="branch in branches">
+	<a href="#" ng-click="getCourses(branch.pk)">{{branch.pk}} - {{branch.fields.branchName}}</a>
+	</li>
+</ul>
+Courses in the selected Branch :
+<ul ng-repeat="course in courses">
+	<li>
+	<a href="hello.html" ng-click="setCookie(course.pk)">{{course.pk}} - {{course.fields.courseName}} - {{course.fields.credits}}</a>
+	</li>
+</ul>
+</body>
+</html>

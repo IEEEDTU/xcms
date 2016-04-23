@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="xcms" lang="en-US">
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.js"></script>
+<script src="js/appN.js" type="text/javascript"></script>
+<body ng-controller='mainCtrl'>
+Add News:
+<form ng-submit="addNews()">
+<PRE>
+	Headline 	: 	<input type="TEXT" ng-model="news.headline"> </input>
+	Description	: 	<input type="TEXT"" ng-model="news.description"></input>
+	Image 		: 	<input type="TEXT" ng-model="news.image"></input>
+	Link 		: 	<input type="TEXT" ng-model="news.link"></input>
+	PublishedBy	: 	<input type="TEXT" ng-model="news.publishedBy"></input>
+	<input type="submit">
+</PRE>
+</form>
+{{response}}
+<br/>
+<pre>
+Retrieve News:
+RowsPerPage	: 	<input type="TEXT" ng-model="news.headline"> </input>
+PageNo		: 	<input type="TEXT"" ng-model="news.description"></input>
+</pre>
+</body>
+</html>
